@@ -73,7 +73,7 @@ if(btn.dataset.detail){detail(btn.dataset.detail);return;}
 if(btn.classList.contains("modal-close")){modal.close();return;}
 if(btn.dataset.view){savedOnly=btn.dataset.view==="saved";document.querySelectorAll(".product-tab").forEach(t=>t.classList.toggle("is-active",t===btn));render();feed.scrollIntoView({behavior:"smooth",block:"start"});return;}
 if(btn.classList.contains("reset-filters")){query="";activeCategory="all";savedOnly=false;document.getElementById("search-input").value="";document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("chip--active",c.dataset.category==="all"));document.querySelectorAll(".product-tab").forEach(t=>t.classList.toggle("is-active",t.dataset.view==="all"));render();return;}
-});
+},true);
 function detailRefresh(id){const b=lookup[id];if(!b)return;const btn=modal.querySelector(".modal-save");if(btn)btn.textContent=saved.has(id)?"★ Saved to shortlist":"☆ Save to shortlist";}
 document.getElementById("search-input").addEventListener("input",e=>{query=e.target.value.trim().toLowerCase();render();});
 document.querySelectorAll(".chip").forEach(el=>el.addEventListener("click",()=>{activeCategory=el.dataset.category;render();}));
